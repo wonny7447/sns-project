@@ -1,67 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset='utf-8'>
-    <title>About Jiwon</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='static/introduction.css'>
-</head>
-<body>
-    <div id="inner">
-        <table>
-            <!-- 좌우명, 기본정보 -->
-            <tr>
-                <td class="motto">
-                    열심히<br>달리는<br>개발자 :)
-                </td>
-                <td class="info" colspan="2">
-                    <div style="text-align: right;">
-                        <img src="static/profile.png"/>
-                    </div>
-                    <p id="name">BACK JIWON</p>
-                    <p id="email">wonny7447@naver.com</p>
-                    <p class="basic">동국대학교 융합보안학과 / 컴퓨터공학과</p>
-                    <p class="basic">1997.05.15</p>
-                </td>
-            </tr>
-            <!-- 이력, 자격증 -->
-            <tr>
-                <td class="col2">
-                    <p class="title">CAREER</p>
-                    <p class="basic">2015. 10. KTds 입사</p>
-                    <p class="basic">2016. 02. 미림 마이스터 고등학교 졸업</p>
-                    <p class="basic">2019. 03. 동국대학교 입학</p>
-                    <p class="basic">2019. 08. 프리랜서</p>
-                </td>
-                <td></td>
-                <td class="col2">
-                    <p class="title">LICENSE</p>
-                    <p class="basic">OCJP (Oracle Java SE 6 programmer)</p>
-                    <p class="basic">IoT지식능력검정</p>
-                    <p class="basic">ITQ 정보기술자격 </p>
-                    <p class="basic">정보처리기능사</p>
-                </td>
-            </tr>
-            <tr>
-                <td class="col3" colspan="3">
-                    <p class="title">PROJECT</p>
-                    <ul>
-                        <li>
-                            <p>[2020년 하반기] 비대면 스터디 어플리케이션 개발 프로젝트</p>
-                            <p class="basic">- 동국대학교 창의적 공학 설계 과목</p>
-                            <p class="basic">- Kotlin, Firebase 활용</p>
-                            <p class="basic">- https://github.com/wonny7447/untactstudy.git</p>
-                        </li>
-                        <li>
-                            <p>[2021년 상반기] Bythebook 쇼핑몰 사이트 개발 프로젝트</p>
-                            <p class="basic">- 반응형 웹사이트 개발, 기획, 디자인</p>
-                            <p class="basic">- Django, Postgresql, Ubuntu 서버 활용</p>
-                            <p class="basic">- https://github.com/wonny7447/bythebook2.git</p>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        </table>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    div {
+        float: left;
+    }
+</style>
+<div style="margin: 5em 5em;">
+    <div style="text-align: center; width: 30%; font-size: 0.9em; line-height: 3em; margin-top: 5em;">
+        Hello :) My name is jiwon. <br/>
+        I quit my job and entered the university.<br/>
+        I like traveling, food, and alcohol. 🍻🍻<br/>
     </div>
-</body>
-</html>
+    <div style="text-align: center; width: 40%;">
+        <img src="{% static 'images/1.png' %}" style="width:70%; border-radius: 3em;"> 
+    </div>
+    <div style="text-align: center; width: 30%; font-size: 0.9em; line-height: 3em; margin-top: 3em;">
+        안녕하세요! 백지원입니다 <br/>
+        퇴사 후 동국대에 입학했고<br/>
+        융합보안학과에서 컴공을 복전중이에요!<br/>
+        여행과 음식을 좋아하고 술도 좋아해요 🍻🍻<br/>
+        멋사에서 많은 걸 얻어가고 싶어요!
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div style="margin: 2em 2em 3em 2em;">
+        <div id="travel" style="margin-top: 2em">
+            <p style="color: #B96BC6; font-weight: bold;">T R A V E L</p>
+            <hr/>
+            <div style="margin-left: 4em;">
+                <img src="{% static 'images/image.jpg' %}" style="border-radius: 2em; width:15%; margin-right: 3em;"/>
+                <img src="{% static 'images/2.jpg' %}" style="border-radius: 2em; width:15%; margin-right: 3em;"/>
+                <img src="{% static 'images/3.jpg' %}" style="border-radius: 2em; width:15%; margin-right: 3em;"/>
+                <img src="{% static 'images/4.jpg' %}" style="border-radius: 2em; width:15%; margin-right: 3em;"/>
+            </div>
+        </div>
+        <div id="food" style="margin-top: 2em">
+            <p style="color: #B96BC6; font-weight: bold;">L O V E</p>
+            <hr/>
+            <div style="margin-left: 4em;">
+                <img src="{% static 'images/5.jpg' %}" style="border-radius: 2em; width:15%; margin-right: 3em;"/>
+                <img src="{% static 'images/6.jpg' %}" style="border-radius: 2em; width:15%; margin-right: 3em;"/>
+                <img src="{% static 'images/9.jpg' %}" style="border-radius: 2em; width:15%; margin-right: 3em;"/>
+                <img src="{% static 'images/8.jpg' %}" style="border-radius: 2em; width:15%; margin-right: 3em;"/>
+            </div>
+        </div>
+    </div>
+{% endblock %}

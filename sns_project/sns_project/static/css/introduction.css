@@ -1,0 +1,75 @@
+#inner {
+    height: auto; 
+    width: 50%; 
+    border: 10px solid #B96BC6; 
+    padding: 2em;
+}
+
+#name {
+    color: #B96BC6;
+    font-weight: bold;
+    margin-top: 5em;
+}
+
+#email {
+    color: #a7aaad;
+    font-weight: bold;
+}
+
+.basic {
+    color: #a7aaad;
+    font-weight: bold;
+}
+
+.motto {
+    width: 50%; 
+    font-size: 7em; 
+    color: #B96BC6; 
+    font-weight: bold;
+}
+
+.info {
+    width: 50%; 
+    text-align: right;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 50px;
+}
+
+td {
+    cell-padding: 5px;
+}
+
+img {
+    width: 180px;
+}
+
+.col2 {
+    border-top: 3px solid #B96BC6; 
+    width: 45%;
+}
+
+.col3 {
+    border-top: 3px solid #B96BC6; 
+}
+
+.title {
+    color: #B96BC6; 
+    font-weight: bold; 
+    font-size: 25px;
+}
+
+li::marker {
+    color: #B96BC6;
+}
+
+li {
+    margin-top: 3em;
+}
+
+li p {
+    color: #B96BC6;
+    font-weight: bold;
+}
