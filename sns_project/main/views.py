@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import QNA
+from .models import Post
 from django.utils import timezone
 
 def showmain(request):
@@ -12,18 +12,18 @@ def like(request):
     return render(request, 'main/like.html')
 
 def qna(request):
-    qna = QNA.objects.all()
+    qna = Post.objects.all()
     return render(request, 'main/qna.html', {'qna':qna})
 
 def detail(request, id):
-    qna = get_object_or_404(QNA, pk=id)
+    qna = get_object_or_404(Post, pk=id)
     return render(request, 'main/qna_detail.html', {'qna':qna})
 
 def new(request):
     return render(request, 'main/new_qna.html')
 
 def create(request):
-	new_qna = QNA()
+	new_qna = Post()
 	new_qna.title = request.POST['title']
 	new_qna.writer = request.POST['writer']
 	new_qna.reg_date = timezone.now()
