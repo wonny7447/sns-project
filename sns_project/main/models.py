@@ -6,6 +6,7 @@ class Post(models.Model):
     writer = models.CharField(max_length=100)
     reg_date = models.DateTimeField()
     body = models.TextField()
+    image = models.ImageField(upload_to="qna/", blank=True, null=True)
 
     def __str__(self):
         return self.title
