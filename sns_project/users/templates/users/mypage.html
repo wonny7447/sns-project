@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div>
+    {% if user.is_authenticated %}
+    <table class="table table-striped" style="width: 80%; margin-top: 5em; margin-left: 5em;">
+        <thead>
+            <tr>
+                <td>번호</td>
+                <td>제목(내용)</td>
+                <td>작성자</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for each_qna in qna %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td><a href="{% url 'main:detail' each_qna.id %}">{{ each_qna.title }} ({{ each_qna.summary }}...)</a></td>
+                <td>{{ each_qna.writer }}</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    <a href="{% url 'main:new' %}" style="margin: 1em 5em;">글쓰기 {{ user.username }}만 가능</a>
+    {% else %}
+    <h4>로그인 후 이용 가능</h4>
+    <a href="{% url 'account_login' %}">로그인</a>
+    <a href="{% url 'account_signup' %}">회원가입</a>
+    {% endif %}
+</div>
+
+
+{% endblock %}

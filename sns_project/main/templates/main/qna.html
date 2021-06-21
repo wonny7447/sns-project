@@ -4,7 +4,7 @@
 {% block content %}
 
     <div>
-
+        {% if user.is_authenticated %}
         <table class="table table-striped" style="width: 80%; margin-top: 5em; margin-left: 5em;">
             <thead>
                 <tr>
@@ -24,6 +24,11 @@
             </tbody>
         </table>
         <a href="{% url 'main:new' %}" style="margin: 1em 5em;">글쓰기</a>
+        {% else %}
+        <h4>로그인 후 이용 가능</h4>
+        <a href="{% url 'account_login' %}">로그인</a>
+        <a href="{% url 'account_signup' %}">회원가입</a>
+        {% endif %}
     </div>
 
 

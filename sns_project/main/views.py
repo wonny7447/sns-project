@@ -25,7 +25,7 @@ def new(request):
 def create(request):
 	new_qna = Post()
 	new_qna.title = request.POST['title']
-	new_qna.writer = request.POST['writer']
+	new_qna.writer = request.user
 	new_qna.reg_date = timezone.now()
 	new_qna.body = request.POST['body']
 	new_qna.image = request.FILES.get('image')
@@ -40,7 +40,7 @@ def edit(request, id):
 def update(request, id):
 	update_qna = Post.objects.get(id=id)
 	update_qna.title = request.POST['title']
-	update_qna.writer = request.POST['writer']
+	update_qna.writer = request.user
 	update_qna.reg_date = timezone.now()
 	update_qna.body = request.POST['body']
 	update_qna.save()
