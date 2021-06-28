@@ -9,7 +9,18 @@
     </div>
     <div class="row mb-3">
         <label for="writer" class="col-sm-2 col-form-label">작성자</label>
-        <div class="col-sm-10">{{ qna.writer }}</div>
+        <div class="col-sm-10">
+            {% if qna.writer %}
+                {% if 'user' in qna.writer.username %}
+                    {{ qna.writer.last_name }} {{ qna.writer.first_name }} (Google)
+                {% else %}
+                    {{ qna.writer }}
+                {% endif %}
+            {% else %}
+                알 수 없음
+            {% endif %}
+
+        </div>
     </div>
     <div class="row mb-3">
         <label for="writer" class="col-sm-2 col-form-label">날짜</label>
@@ -28,8 +39,28 @@
         </div>
     </div>
     <!--<button class="btn btn-primary"  onclick="{% url 'main:edit' qna.id %}">수정하기</button> -->
-    <a href="{% url 'main:edit' qna.id %}">수정 {{ qna.id }}</a>
+    <a href="{% url 'main:edit' qna.id %}">수정</a>
     <a href="{% url 'main:delete' qna.id %}">삭제</a>
+
+    <div>
+        {% for comment in comments %}
+            <div>
+                [{{ forloop.counter }}][{{ comment.writer }}] {{ comment.content }}
+                <a href="{% url 'main:edit_comment' qna.id comment.id %}">(U) </a>
+                <a href="{% url 'main:delete_comment' qna.id comment.id %}">(D)</a>
+            </div>
+        {% endfor %}
+    </div>
+    
+    <div>
+        <form action="{% url 'main:create_comment' qna.id %}" method="POST">
+            {%csrf_token%}
+            <textarea name="content" placeholder="댓글내용입력"></textarea>
+            <input type="submit" value="확인">
+        </form>
+    </div>
 </div>
+
+
 
 {% endblock %}

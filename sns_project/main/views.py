@@ -1,4 +1,4 @@
-from main.models import Post
+from main.models import Post, Comment
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 
@@ -17,7 +17,8 @@ def qna(request):
 
 def detail(request, id):
     qna = get_object_or_404(Post, pk=id)
-    return render(request, 'main/qna_detail.html', {'qna':qna})
+    all_comment = qna.comments.all().order_by('-created_at')
+    return render(request, 'main/qna_detail.html', {'qna':qna, 'comments':all_comment})
 
 def new(request):
     return render(request, 'main/new_qna.html')
@@ -50,3 +51,33 @@ def delete(request, id):
     delete_qna = Post.objects.get(id=id)
     delete_qna.delete()
     return redirect('main:qna')
+
+
+def create_comment(request, id):
+	if request.method == "POST":
+		post = get_object_or_404(Post, pk=id)
+		current_user = request.user
+		comment_content = request.POST.get('content')
+		Comment.objects.create(content=comment_content, writer=current_user, post=post)
+	return redirect('main:detail', id)
+
+
+def edit_comment(request, qna_id, comment_id):
+    edit_comment = Comment.objects.get(id=comment_id)
+    return render(request, 'main/edit_comment.html', {'qna_id':qna_id, 'comment':edit_comment})
+
+
+def update_comment(request, qna_id, comment_id):
+	update_comment = Comment.objects.get(id=comment_id)
+	update_comment.content = request.POST['content']
+	update_comment.updated_at = timezone.now()
+	update_comment.save()
+	return redirect('main:detail', qna_id)
+
+
+def delete_comment(request, qna_id, comment_id):
+    delete_comment = Comment.objects.get(id=comment_id)
+    delete_comment.delete()
+    return redirect('main:detail', qna_id)
+
+

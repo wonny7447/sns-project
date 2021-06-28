@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<form action="{% url 'main:update_comment' qna_id comment.id %}" method="POST">
+    {%csrf_token%}
+    <textarea name="content" placeholder="댓글내용입력">{{ comment.content }}</textarea>
+    <input type="submit" value="확인">
+</form>
+
+{% endblock %}
