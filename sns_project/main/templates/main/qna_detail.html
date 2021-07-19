@@ -12,7 +12,7 @@
         <div class="col-sm-10">
             {% if qna.writer %}
                 {% if 'user' in qna.writer.username %}
-                    {{ qna.writer.last_name }} {{ qna.writer.first_name }} (Google)
+                    {{ qna.writer.last_name }} {{ qna.writer.first_name }} (Google) 
                 {% else %}
                     {{ qna.writer }}
                 {% endif %}

@@ -18,7 +18,7 @@
                 <tr>
                     <td>{{ forloop.counter }}</td>
                     <td><a href="{% url 'main:detail' each_qna.id %}">{{ each_qna.title }} ({{ each_qna.summary }}...)</a></td>
-                    <td>{{ each_qna.writer }}</td>
+                    <td><a href="{% url 'users:mypage' each_qna.writer.id %}">{{ each_qna.writer }}</a></td>
                 </tr>
 	            {%endfor%}
             </tbody>
